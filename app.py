@@ -3,6 +3,7 @@ import numpy as np
 import joblib
 import math
 from datetime import datetime
+from xgboost import XGBRegressor
 
 # 1️⃣ Load the trained KMeans model
 kmeans = joblib.load("kmeans_model.pkl")
@@ -38,7 +39,8 @@ kmeans = joblib.load("kmeans_model.pkl")
 #     }
 #     st.markdown(cluster_notes.get(cluster, "ℹ️ No specific description for this cluster."))
 
-xgb_model = joblib.load("xgb_monetary_model.pkl")  # XGBoost regressor
+xgb_loaded = XGBRegressor()
+xgb_loaded.load_model('xgb_model.json')
 
 # 2️⃣ Page Setup
 st.set_page_config(page_title="RFM Cluster & CLV Predictor", layout="centered", page_icon="📊")
