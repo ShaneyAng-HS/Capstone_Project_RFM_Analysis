@@ -4,13 +4,16 @@ import numpy as np
 import joblib
 import math
 from datetime import datetime
-from xgboost import XGBRegressor
+#from xgboost import XGBRegressor
 
 # 1️⃣ Load the trained KMeans model
 kmeans = joblib.load("kmeans_model.pkl")
 
-xgb_model = XGBRegressor()
-xgb_model.load_model('xgb_model.json')
+# 1️⃣ Load the trained KMeans model
+rf_model = joblib.load("rf_model.joblib")
+
+# xgb_model = XGBRegressor()
+# xgb_model.load_model('xgb_model.json')
 
 # 2️⃣ Page Setup
 st.set_page_config(page_title="RFM Cluster & CLV Predictor", layout="centered", page_icon="📊")
@@ -34,7 +37,7 @@ total_qty = st.number_input("Total Quantity Purchased", min_value=1, value=25)
 tenure = st.number_input("Customer Tenure (days)", min_value=1, value=365)
 
 # Derived features for regression
-avg_order_value = monetary / frequency
+#avg_order_value = monetary / frequency
 avg_qty_per_order = total_qty / frequency
 
 # Log-transformed features for clustering
@@ -52,12 +55,12 @@ if st.button("🚀 Predict Cluster & CLV"):
     input_df = pd.DataFrame({
         'Recency': [recency],
         'Frequency': [frequency],
-        'AvgOrderValue': [avg_order_value],
+        #'AvgOrderValue': [avg_order_value],
         'TotalQuantity': [total_qty],
         'AvgQuantityPerOrder': [avg_qty_per_order],
         'Tenure': [tenure]
     })
-    predicted_monetary = xgb_model.predict(input_df)[0]
+    predicted_monetary = rf_model.predict(input_df)[0]
 
     # --- Output Results --- #
     st.subheader("📊 Prediction Results")
@@ -71,7 +74,7 @@ if st.button("🚀 Predict Cluster & CLV"):
     }
     st.markdown(cluster_notes.get(cluster, "ℹ️ No specific description for this cluster."))
 
-    st.info(f"💰 **Actual Spend:** ${monetary:.2f}")
+    #st.info(f"💰 **Actual Spend:** ${monetary:.2f}")
     st.success(f"📈 **Predicted Spend (CLV):** ${predicted_monetary:.2f}")
 
 
