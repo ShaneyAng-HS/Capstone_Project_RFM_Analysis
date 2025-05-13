@@ -77,4 +77,6 @@ if st.button("🚀 Predict Cluster & CLV"):
     #st.info(f"💰 **Actual Spend:** ${monetary:.2f}")
     st.success(f"📈 **Predicted Spend (CLV):** ${predicted_monetary:.2f}")
 
-
+# Footer
+st.markdown("---")
+st.markdown("Developed with :heart: using Streamlit | © 2025 Shaney Ang Tech")
