@@ -6,7 +6,7 @@ Segment, Predict & Grow.
 
 
 ## Methodology
-
+![Semantic description of image](assets/rfm_analysis.png "rfm")Recency, Frequency and Monetary Analysis]
 
 
 ## Application Deployment
