@@ -1,11 +1,10 @@
 import streamlit as st
 import numpy as np
-import pickle
+import joblib
 import math
 
 # 1️⃣ Load the trained KMeans model
-with open("kmeans_model.pkl", "rb") as f:
-    kmeans = pickle.load(f)
+kmeans = joblib.load("kmeans_model.pkl")
 
 # 2️⃣ Page setup
 st.set_page_config(page_title="RFM Cluster Predictor", layout="centered", page_icon="📊")
