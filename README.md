@@ -6,9 +6,12 @@ Segment, Predict & Grow.
 
 
 ## Methodology
-![Recency, Frequency and Monetary Analysis](assets/rfm_analysis.png)
+<p align="center">
+  <img src="assets/rfm_analysis.png" alt="Recency, Frequency and Monetary Analysis" width="500"/>
+  <br>
+  <em>Figure 1: Recency, Frequency and Monetary Analysis</em>
+</p>
 
-*Figure 1: Recency, Frequency and Monetary Analysis*
 
 
 
