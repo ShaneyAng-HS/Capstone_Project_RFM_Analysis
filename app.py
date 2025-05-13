@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import pickle
+#import pickle
 import math
 
 # 1️⃣ Load the trained KMeans model
