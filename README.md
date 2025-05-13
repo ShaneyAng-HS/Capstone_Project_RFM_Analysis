@@ -1,8 +1,10 @@
 # Capstone_Project_RFM_Analysis (May 2025)
+Segment, Predict & Grow.
+
 ---
 
 ## Problem Statement
-Segment, Predict & Grow.
+
 
 
 ## Methodology
