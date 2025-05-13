@@ -1,10 +1,8 @@
-# Capstone_Project_RFM_Analysis
-Segment, Predict &amp; Grow
-https://online-retail-rfm-analysis.streamlit.app/
-# tripadvisor-nlp-insights for Mini Project 3 (2024)
+# Capstone_Project_RFM_Analysis (May 2025)
 ---
-## Problem Statement
 
+## Problem Statement
+Segment, Predict & Grow.
 
 
 ## Methodology
