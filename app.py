@@ -4,6 +4,7 @@ import numpy as np
 import joblib
 from datetime import datetime
 
+st.set_page_config(page_title="Customer Insights Portal", layout="centered", page_icon="🎁")
 # Custom styling to match corporate theme
 st.markdown("""
     <style>
@@ -42,7 +43,6 @@ kmeans = joblib.load("kmeans_model.pkl")
 rf_model = joblib.load("rf_model.joblib")
 
 # Page Setup
-st.set_page_config(page_title="Customer Insights Portal", layout="centered", page_icon="🎁")
 st.title("🎁 Gift Buyer Segmentation & Lifetime Value Estimator")
 st.markdown("This tool classifies your customers into strategic segments and estimates their Customer Lifetime Value (CLV) based on transaction patterns.")
 
