@@ -4,13 +4,46 @@ import numpy as np
 import joblib
 from datetime import datetime
 
+# Custom styling to match corporate theme
+st.markdown("""
+    <style>
+        .main {
+            background-color: #1e1e1e;
+            color: #e7e2d6;
+        }
+        h1, h2, h3, .stMetricValue {
+            color: #e2b0a6;
+        }
+        label, .stMarkdown, .stTextInput > div > div, .stNumberInput > div > div {
+            color: #e7e2d6;
+        }
+        .stTextInput, .stDateInput, .stNumberInput {
+            background-color: #887c62;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .stButton > button {
+            background-color: #664b34;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            border: 2px solid #e7e2d6;
+        }
+        .stButton > button:hover {
+            background-color: #e2b0a6;
+            color: #1e1e1e;
+        }
+        footer {visibility: hidden;}
+    </style>
+""", unsafe_allow_html=True)
+
 # Load trained models
 kmeans = joblib.load("kmeans_model.pkl")
 rf_model = joblib.load("rf_model.joblib")
 
 # Page Setup
-st.set_page_config(page_title="Customer Insights Portal", layout="centered", page_icon="📊")
-st.title("📊 Customer Segmentation & Lifetime Value Estimator")
+st.set_page_config(page_title="Customer Insights Portal", layout="centered", page_icon="🎁")
+st.title("🎁 Gift Buyer Segmentation & Lifetime Value Estimator")
 st.markdown("This tool classifies your customers into strategic segments and estimates their Customer Lifetime Value (CLV) based on transaction patterns.")
 
 # Input Section
@@ -54,7 +87,7 @@ if st.button("📈 Generate Insights"):
 
     # Display Results
     st.subheader("🎯 Predicted Segment & Value")
-    
+
     segment_map = {
         0: "🟣 New/Moderate Buyers",
         1: "🔴 At-Risk",
@@ -77,7 +110,7 @@ if st.button("📈 Generate Insights"):
 # Footer
 st.markdown("---")
 st.markdown(
-    "<div style='text-align: center; color: grey;'>"
+    "<div style='text-align: center; color: #f3f3f3;'>"
     "Developed by <b>Shaney Ang Tech</b> | Powered by Streamlit | © 2025"
     "</div>",
     unsafe_allow_html=True
