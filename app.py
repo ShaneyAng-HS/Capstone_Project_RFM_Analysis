@@ -329,4 +329,4 @@ if st.sidebar.button("📈 Generate Insights"):
         0: "These customers show moderate engagement. Nurture with consistent marketing.",
         1: "These customers may be slipping away. Consider re-engagement campaigns.",
         2: "These are promising leads. Focused promotion may convert them to loyal buyers.",
-        3: "Top-tier loyal customers. Prioritize retention
+        3: "Top-tier loyal customers. Prioritize retention"
