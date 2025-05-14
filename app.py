@@ -28,7 +28,6 @@ custom_css = """
         color: black !important;
     }
 
-    /* Metric cards */
     div[data-testid="metric-container"] {
         background-color: #ffffff;
         color: black;
@@ -37,7 +36,6 @@ custom_css = """
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    /* All input fields and selectors */
     input, textarea, select, div[data-baseweb="input"] input {
         background-color: #ffffff !important;
         color: black !important;
@@ -45,7 +43,6 @@ custom_css = """
         border-radius: 5px;
     }
 
-    /* Spinner buttons inside number inputs */
     div[data-baseweb="input"] button {
         background-color: #cccccc !important;
         color: black !important;
@@ -53,7 +50,6 @@ custom_css = """
         border-radius: 0px 5px 5px 0px !important;
     }
 
-    /* General buttons */
     button, div[data-baseweb="button"] {
         background-color: #cccccc !important;
         color: black !important;
@@ -77,7 +73,8 @@ custom_css = """
         color: black !important;
     }
 
-    div[data-baseweb="datepicker-popover"] button {
+    /* Fix navigation buttons inside calendar popover */
+    div[data-baseweb="datepicker-popover"] div[data-baseweb="calendar-header"] button {
         background-color: #bbbbbb !important;
         color: black !important;
         border: 1px solid #999 !important;
