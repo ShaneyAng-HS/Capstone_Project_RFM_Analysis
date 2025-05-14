@@ -191,7 +191,7 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Inject the sidebar-only CSS
-local_css("styles.css")
+local_css("style.css")
 
 st.title("📊 Customer Segmentation & Lifetime Value Estimator")
 st.markdown("This tool classifies your customers into strategic segments and estimates their Customer Lifetime Value (CLV) based on transaction patterns.")
