@@ -10,6 +10,29 @@ rf_model = joblib.load("rf_model.joblib")
 
 # Page Setup
 st.set_page_config(page_title="Customer Insights Portal", layout="centered", page_icon="📊")
+
+# Custom CSS to change background color and style
+custom_css = """
+<style>
+    .stApp {
+        background-color: #f5f7fa;
+    }
+    section[data-testid="stSidebar"] {
+        background-color: #ffffff;
+    }
+    h1, h2, h3, h4 {
+        color: #333333;
+    }
+    div[data-testid="metric-container"] {
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+</style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
+
 st.title("📊 Customer Segmentation & Lifetime Value Estimator")
 st.markdown("This tool classifies your customers into strategic segments and estimates their Customer Lifetime Value (CLV) based on transaction patterns.")
 
