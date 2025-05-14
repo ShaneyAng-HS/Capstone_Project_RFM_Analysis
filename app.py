@@ -37,17 +37,28 @@ custom_css = """
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    /* Button text */
-    button {
-        color: black !important;
-    }
-
-    /* Input fields and date pickers */
-    input, textarea, select, div[data-baseweb="input"] {
+    /* All input fields and selectors */
+    input, textarea, select, div[data-baseweb="input"] input {
         background-color: #ffffff !important;
         color: black !important;
         border: 1px solid #ccc;
         border-radius: 5px;
+    }
+
+    /* Spinner buttons inside number inputs */
+    div[data-baseweb="input"] button {
+        background-color: #cccccc !important;
+        color: black !important;
+        border: 1px solid #999 !important;
+        border-radius: 0px 5px 5px 0px !important;
+    }
+
+    /* General buttons */
+    button, div[data-baseweb="button"] {
+        background-color: #cccccc !important;
+        color: black !important;
+        border: 1px solid #999 !important;
+        border-radius: 5px !important;
     }
 
     div[data-baseweb="select"] {
@@ -58,11 +69,6 @@ custom_css = """
     div[class*="stDateInput"] input {
         background-color: #ffffff !important;
         color: black !important;
-    }
-
-    /* Info, success, and alerts */
-    .stAlert, .stInfo, .stSuccess {
-        color: black;
     }
 </style>
 """
