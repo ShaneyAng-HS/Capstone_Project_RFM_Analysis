@@ -117,7 +117,7 @@ st.markdown(f"📆 **Recency (days since last purchase):** `{recency}`")
 
 frequency = st.number_input("Purchase Frequency", min_value=1, value=5, help="Number of orders placed to date")
 monetary = st.number_input("Total Monetary Spend ($)", min_value=1.0, value=500.0, help="Total spend to date")
-total_qty = st.number_input("Total Quantity Purchased", min_value=1, value=25)
+total_qty = st.number_input("Total Quantity Purchased", min_value=1, value=25, help="Number of items purchased to date")
 tenure = st.number_input("Customer Tenure (days)", min_value=1, value=365, help="How long the customer has been with the company")
 
 # Feature Engineering
