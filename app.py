@@ -15,16 +15,16 @@ st.set_page_config(page_title="Customer Insights Portal", layout="centered", pag
 custom_css = """
 <style>
     .stApp {
-        background-color: #ADD8E6;
+        background-color: #000080;
     }
     section[data-testid="stSidebar"] {
-        background-color: #ADD8E6;
+        background-color: #000080;
     }
     h1, h2, h3, h4 {
         color: #333333;
     }
     div[data-testid="metric-container"] {
-        background-color: #ADD8E6;
+        background-color: #000080;
         padding: 10px;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
