@@ -14,25 +14,17 @@ st.set_page_config(page_title="Customer Insights Portal", layout="centered", pag
 # Custom CSS to change background color and style
 custom_css = """
 <style>
-    /* App background */
     .stApp {
         background-color: #e6f0ff;
         color: black;
     }
 
-    /* Sidebar */
     section[data-testid="stSidebar"] {
         background-color: #e6f0ff;
         color: black;
     }
 
-    /* Headings */
-    h1, h2, h3, h4, h5, h6 {
-        color: black;
-    }
-
-    /* Paragraphs, markdown, and other text */
-    p, div, span, label, input, textarea {
+    h1, h2, h3, h4, h5, h6, p, div, span, label {
         color: black !important;
     }
 
@@ -50,8 +42,26 @@ custom_css = """
         color: black !important;
     }
 
-    /* Info and success boxes */
-    .stAlert, .stMetric, .stInfo, .stSuccess {
+    /* Input fields and date pickers */
+    input, textarea, select, div[data-baseweb="input"] {
+        background-color: #ffffff !important;
+        color: black !important;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    div[data-baseweb="select"] {
+        background-color: #ffffff !important;
+        color: black !important;
+    }
+
+    div[class*="stDateInput"] input {
+        background-color: #ffffff !important;
+        color: black !important;
+    }
+
+    /* Info, success, and alerts */
+    .stAlert, .stInfo, .stSuccess {
         color: black;
     }
 </style>
