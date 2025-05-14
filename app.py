@@ -70,6 +70,35 @@ custom_css = """
         background-color: #ffffff !important;
         color: black !important;
     }
+
+    /* Calendar popover */
+    div[data-baseweb="datepicker-popover"] {
+        background-color: #cccccc !important;
+        color: black !important;
+    }
+
+    div[data-baseweb="datepicker-popover"] button {
+        background-color: #bbbbbb !important;
+        color: black !important;
+        border: 1px solid #999 !important;
+        border-radius: 5px !important;
+    }
+
+    div[data-baseweb="calendar"] {
+        background-color: #cccccc !important;
+        color: black !important;
+    }
+
+    div[data-baseweb="calendar"] div[role="option"][aria-selected="true"] {
+        background-color: #999999 !important;
+        color: white !important;
+        border-radius: 50% !important;
+    }
+
+    div[data-baseweb="calendar-header"] {
+        background-color: #cccccc !important;
+        color: black !important;
+    }
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
