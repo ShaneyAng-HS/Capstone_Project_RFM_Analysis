@@ -4,50 +4,53 @@ import numpy as np
 import joblib
 from datetime import datetime
 
-st.set_page_config(page_title="Customer Insights Portal", layout="centered", page_icon="🎁")
-# Custom styling to match corporate theme
-st.markdown("""
-    <style>
-        .main {
-            background-color: #1e1e1e;
-            color: #e7e2d6;
-        }
-        h1, h2, h3, .stMetricValue {
-            color: #e2b0a6;
-        }
-        label, .stMarkdown, .stTextInput > div > div, .stNumberInput > div > div {
-            color: #e7e2d6;
-        }
-        .stTextInput, .stDateInput, .stNumberInput {
-            background-color: #887c62;
-            border-radius: 10px;
-            padding: 5px;
-        }
-        .stButton > button {
-            background-color: #664b34;
-            color: white;
-            font-weight: bold;
-            border-radius: 8px;
-            border: 2px solid #e7e2d6;
-        }
-        .stButton > button:hover {
-            background-color: #e2b0a6;
-            color: #1e1e1e;
-        }
-        footer {visibility: hidden;}
-    </style>
-""", unsafe_allow_html=True)
-
 # Load trained models
 kmeans = joblib.load("kmeans_model.pkl")
 rf_model = joblib.load("rf_model.joblib")
 
-# Page Setup
-st.title("🎁 Gift Buyer Segmentation & Lifetime Value Estimator")
-st.markdown("This tool classifies your customers into strategic segments and estimates their Customer Lifetime Value (CLV) based on transaction patterns.")
+# App Config with professional color theme
+st.set_page_config(page_title="Customer Insights Portal", layout="centered", page_icon="🧠")
+
+# Apply custom dark theme using Markdown (no white background)
+st.markdown(
+    """
+    <style>
+        body {
+            background-color: #2b2b2b;
+            color: #f0f0f0;
+        }
+        .stApp {
+            background-color: #2b2b2b;
+            color: #f0f0f0;
+        }
+        .stButton > button {
+            background-color: #4db8ff;
+            color: black;
+            border-radius: 8px;
+            padding: 0.5em 1em;
+        }
+        .stButton > button:hover {
+            background-color: #73ccff;
+            color: black;
+        }
+        .stNumberInput, .stDateInput {
+            background-color: #3b3b3b !important;
+            color: #f0f0f0 !important;
+        }
+        .stTextInput > div > input {
+            color: #f0f0f0 !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Title and intro
+st.title("🧠 Customer Segmentation & CLV Estimator")
+st.markdown("Use this tool to classify your customers into strategic segments and estimate their lifetime value based on purchase behavior.")
 
 # Input Section
-st.header("🔍 Customer Purchase Details")
+st.header("🛒 Customer Purchase Details")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -70,7 +73,7 @@ log_frequency = np.log1p(frequency)
 log_monetary = np.log1p(monetary)
 
 # Prediction Trigger
-if st.button("📈 Generate Insights"):
+if st.button("🚀 Generate Insights"):
     # Predict cluster
     user_rfm = np.array([[log_recency, log_frequency, log_monetary]])
     cluster = kmeans.predict(user_rfm)[0]
@@ -102,15 +105,15 @@ if st.button("📈 Generate Insights"):
         3: "Top-tier loyal customers. Prioritize retention and premium experiences."
     }
 
-    st.success(f"📌 **Customer Segment:** {segment_map.get(cluster)}")
+    st.success(f"🧩 **Customer Segment:** {segment_map.get(cluster)}")
     st.info(descriptions.get(cluster))
 
-    st.metric("📊 Predicted Lifetime Value (CLV)", f"${predicted_monetary:,.2f}")
+    st.metric("💰 Predicted Lifetime Value (CLV)", f"${predicted_monetary:,.2f}")
 
 # Footer
 st.markdown("---")
 st.markdown(
-    "<div style='text-align: center; color: #f3f3f3;'>"
+    "<div style='text-align: center; color: #a9a9a9;'>"
     "Developed by <b>Shaney Ang Tech</b> | Powered by Streamlit | © 2025"
     "</div>",
     unsafe_allow_html=True
