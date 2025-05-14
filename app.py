@@ -12,38 +12,51 @@ rf_model = joblib.load("rf_model.joblib")
 st.set_page_config(page_title="Customer Insights Portal", layout="centered", page_icon="📊")
 
 # Custom CSS to change background color and style
-st.markdown("""
-    <style>
-        .main {
-            background-color: #dceefb;  /* Light blue background */
-            color: #000000;  /* Black text */
-        }
-        h1, h2, h3, .stMetricValue {
-            color: #000000;
-        }
-        label, .stMarkdown, .stTextInput input, .stNumberInput input {
-            color: #000000 !important;
-        }
-        .stTextInput, .stDateInput, .stNumberInput {
-            background-color: #ffffff;  /* White input fields for contrast */
-            color: #000000;
-            border-radius: 10px;
-            padding: 5px;
-        }
-        .stButton > button {
-            background-color: #90cdf4;  /* Softer blue button */
-            color: #000000;
-            font-weight: bold;
-            border-radius: 8px;
-            border: 2px solid #000000;
-        }
-        .stButton > button:hover {
-            background-color: #63b3ed;
-            color: #000000;
-        }
-        footer {visibility: hidden;}
-    </style>
-""", unsafe_allow_html=True)
+custom_css = """
+<style>
+    /* App background */
+    .stApp {
+        background-color: #e6f0ff;
+        color: black;
+    }
+
+    /* Sidebar */
+    section[data-testid="stSidebar"] {
+        background-color: #e6f0ff;
+        color: black;
+    }
+
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+        color: black;
+    }
+
+    /* Paragraphs, markdown, and other text */
+    p, div, span, label, input, textarea {
+        color: black !important;
+    }
+
+    /* Metric cards */
+    div[data-testid="metric-container"] {
+        background-color: #ffffff;
+        color: black;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Button text */
+    button {
+        color: black !important;
+    }
+
+    /* Info and success boxes */
+    .stAlert, .stMetric, .stInfo, .stSuccess {
+        color: black;
+    }
+</style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
 
 st.title("📊 Customer Segmentation & Lifetime Value Estimator")
 st.markdown("This tool classifies your customers into strategic segments and estimates their Customer Lifetime Value (CLV) based on transaction patterns.")
