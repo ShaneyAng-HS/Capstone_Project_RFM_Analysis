@@ -14,7 +14,7 @@ st.title("📊 Customer Segmentation & Lifetime Value Estimator")
 st.markdown("This tool classifies your customers into strategic segments and estimates their Customer Lifetime Value (CLV) based on transaction patterns.")
 
 # Input Section
-st.header("🔍 Customer Purchase Details")
+st.header("🛒 Customer Purchase Details")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -69,10 +69,10 @@ if st.button("📈 Generate Insights"):
         3: "Top-tier loyal customers. Prioritize retention and premium experiences."
     }
 
-    st.success(f"📌 **Customer Segment:** {segment_map.get(cluster)}")
+    st.success(f"🧩 **Customer Segment:** {segment_map.get(cluster)}")
     st.info(descriptions.get(cluster))
 
-    st.metric("📊 Predicted Lifetime Value (CLV)", f"${predicted_monetary:,.2f}")
+    st.metric("💰 Predicted Lifetime Value (CLV)", f"${predicted_monetary:,.2f}")
 
 # Footer
 st.markdown("---")
