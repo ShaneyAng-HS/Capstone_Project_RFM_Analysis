@@ -8,37 +8,43 @@ from datetime import datetime
 kmeans = joblib.load("kmeans_model.pkl")
 rf_model = joblib.load("rf_model.joblib")
 
-# App Config with professional color theme
+# Set page config
 st.set_page_config(page_title="Customer Insights Portal", layout="centered", page_icon="🧠")
 
-# Apply custom dark theme using Markdown (no white background)
+# Apply enhanced dark theme with better contrast
 st.markdown(
     """
     <style>
-        body {
-            background-color: #2b2b2b;
-            color: #f0f0f0;
+        body, .stApp {
+            background-color: #1e1e1e;
+            color: #eaeaea;
         }
-        .stApp {
-            background-color: #2b2b2b;
-            color: #f0f0f0;
+        h1, h2, h3, h4, h5 {
+            color: #ffffff;
+        }
+        .stTextInput > div > input,
+        .stNumberInput input,
+        .stDateInput input {
+            background-color: #444444;
+            color: #ffffff;
+            border-radius: 6px;
         }
         .stButton > button {
             background-color: #4db8ff;
             color: black;
-            border-radius: 8px;
-            padding: 0.5em 1em;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
         }
         .stButton > button:hover {
-            background-color: #73ccff;
+            background-color: #6dccff;
             color: black;
         }
-        .stNumberInput, .stDateInput {
-            background-color: #3b3b3b !important;
-            color: #f0f0f0 !important;
+        .stMarkdown {
+            color: #eaeaea;
         }
-        .stTextInput > div > input {
-            color: #f0f0f0 !important;
+        .metric {
+            color: #ffffff;
         }
     </style>
     """,
@@ -47,9 +53,9 @@ st.markdown(
 
 # Title and intro
 st.title("🧠 Customer Segmentation & CLV Estimator")
-st.markdown("Use this tool to classify your customers into strategic segments and estimate their lifetime value based on purchase behavior.")
+st.markdown("This tool classifies customers into strategic segments and predicts Customer Lifetime Value (CLV) based on purchase behavior.")
 
-# Input Section
+# Input section
 st.header("🛒 Customer Purchase Details")
 col1, col2 = st.columns(2)
 
@@ -61,10 +67,10 @@ with col2:
 recency = (current_date - prev_date).days
 st.markdown(f"📆 **Recency (days since last purchase):** `{recency}`")
 
-frequency = st.number_input("Purchase Frequency", min_value=1, value=5, help="Number of orders placed to date")
-monetary = st.number_input("Total Monetary Spend ($)", min_value=1.0, value=500.0, help="Total spend to date in USD")
-total_qty = st.number_input("Total Quantity Purchased", min_value=1, value=25)
-tenure = st.number_input("Customer Tenure (days)", min_value=1, value=365, help="How long the customer has been with the company")
+frequency = st.number_input("🧾 Purchase Frequency", min_value=1, value=5)
+monetary = st.number_input("💵 Total Spend ($)", min_value=1.0, value=500.0)
+total_qty = st.number_input("📦 Total Quantity Purchased", min_value=1, value=25)
+tenure = st.number_input("⏳ Customer Tenure (days)", min_value=1, value=365)
 
 # Feature Engineering
 avg_qty_per_order = total_qty / frequency
@@ -74,11 +80,9 @@ log_monetary = np.log1p(monetary)
 
 # Prediction Trigger
 if st.button("🚀 Generate Insights"):
-    # Predict cluster
     user_rfm = np.array([[log_recency, log_frequency, log_monetary]])
     cluster = kmeans.predict(user_rfm)[0]
 
-    # Predict monetary value
     input_df = pd.DataFrame({
         'Recency': [recency],
         'Frequency': [frequency],
@@ -88,7 +92,7 @@ if st.button("🚀 Generate Insights"):
     })
     predicted_monetary = rf_model.predict(input_df)[0]
 
-    # Display Results
+    # Result section
     st.subheader("🎯 Predicted Segment & Value")
 
     segment_map = {
@@ -113,7 +117,7 @@ if st.button("🚀 Generate Insights"):
 # Footer
 st.markdown("---")
 st.markdown(
-    "<div style='text-align: center; color: #a9a9a9;'>"
+    "<div style='text-align: center; color: #888;'>"
     "Developed by <b>Shaney Ang Tech</b> | Powered by Streamlit | © 2025"
     "</div>",
     unsafe_allow_html=True
