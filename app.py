@@ -12,93 +12,93 @@ rf_model = joblib.load("rf_model.joblib")
 st.set_page_config(page_title="Customer Insights Portal", layout="centered", page_icon="📊")
 
 # Custom CSS to change background color and style
-# custom_css = """
-# <style>
-#     .stApp {
-#         background-color: #e6f0ff;
-#         color: black;
-#     }
+custom_css = """
+<style>
+    .stApp {
+        background-color: #e6f0ff;
+        color: black;
+    }
 
-#     section[data-testid="stSidebar"] {
-#         background-color: #e6f0ff;
-#         color: black;
-#     }
+    section[data-testid="stSidebar"] {
+        background-color: #e6f0ff;
+        color: black;
+    }
 
-#     h1, h2, h3, h4, h5, h6, p, div, span, label {
-#         color: black !important;
-#     }
+    h1, h2, h3, h4, h5, h6, p, div, span, label {
+        color: black !important;
+    }
 
-#     div[data-testid="metric-container"] {
-#         background-color: #ffffff;
-#         color: black;
-#         padding: 10px;
-#         border-radius: 10px;
-#         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-#     }
+    div[data-testid="metric-container"] {
+        background-color: #ffffff;
+        color: black;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-#     input, textarea, select, div[data-baseweb="input"] input {
-#         background-color: #ffffff !important;
-#         color: black !important;
-#         border: 1px solid #ccc;
-#         border-radius: 5px;
-#     }
+    input, textarea, select, div[data-baseweb="input"] input {
+        background-color: #ffffff !important;
+        color: black !important;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
-#     div[data-baseweb="input"] button {
-#         background-color: #cccccc !important;
-#         color: black !important;
-#         border: 1px solid #999 !important;
-#         border-radius: 0px 5px 5px 0px !important;
-#     }
+    div[data-baseweb="input"] button {
+        background-color: #cccccc !important;
+        color: black !important;
+        border: 1px solid #999 !important;
+        border-radius: 0px 5px 5px 0px !important;
+    }
 
-#     button, div[data-baseweb="button"] {
-#         background-color: #cccccc !important;
-#         color: black !important;
-#         border: 1px solid #999 !important;
-#         border-radius: 5px !important;
-#     }
+    button, div[data-baseweb="button"] {
+        background-color: #cccccc !important;
+        color: black !important;
+        border: 1px solid #999 !important;
+        border-radius: 5px !important;
+    }
 
-#     div[data-baseweb="select"] {
-#         background-color: #ffffff !important;
-#         color: black !important;
-#     }
+    div[data-baseweb="select"] {
+        background-color: #ffffff !important;
+        color: black !important;
+    }
 
-#     div[class*="stDateInput"] input {
-#         background-color: #ffffff !important;
-#         color: black !important;
-#     }
+    div[class*="stDateInput"] input {
+        background-color: #ffffff !important;
+        color: black !important;
+    }
 
-#     /* Calendar popover */
-#     div[data-baseweb="datepicker-popover"] {
-#         background-color: #cccccc !important;
-#         color: black !important;
-#     }
+    /* Calendar popover */
+    div[data-baseweb="datepicker-popover"] {
+        background-color: #cccccc !important;
+        color: black !important;
+    }
 
-#     /* Fix navigation buttons inside calendar popover */
-#     div[data-baseweb="datepicker-popover"] div[data-baseweb="calendar-header"] button {
-#         background-color: #bbbbbb !important;
-#         color: black !important;
-#         border: 1px solid #999 !important;
-#         border-radius: 5px !important;
-#     }
+    /* Fix navigation buttons inside calendar popover */
+    div[data-baseweb="datepicker-popover"] div[data-baseweb="calendar-header"] button {
+        background-color: #bbbbbb !important;
+        color: black !important;
+        border: 1px solid #999 !important;
+        border-radius: 5px !important;
+    }
 
-#     div[data-baseweb="calendar"] {
-#         background-color: #cccccc !important;
-#         color: black !important;
-#     }
+    div[data-baseweb="calendar"] {
+        background-color: #cccccc !important;
+        color: black !important;
+    }
 
-#     div[data-baseweb="calendar"] div[role="option"][aria-selected="true"] {
-#         background-color: #999999 !important;
-#         color: white !important;
-#         border-radius: 50% !important;
-#     }
+    div[data-baseweb="calendar"] div[role="option"][aria-selected="true"] {
+        background-color: #999999 !important;
+        color: white !important;
+        border-radius: 50% !important;
+    }
 
-#     div[data-baseweb="calendar-header"] {
-#         background-color: #cccccc !important;
-#         color: black !important;
-#     }
-# </style>
-# """
-# st.markdown(custom_css, unsafe_allow_html=True)
+    div[data-baseweb="calendar-header"] {
+        background-color: #cccccc !important;
+        color: black !important;
+    }
+</style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
 
 st.title("📊 Customer Segmentation & Lifetime Value Estimator")
 st.markdown("This tool classifies your customers into strategic segments and estimates their Customer Lifetime Value (CLV) based on transaction patterns.")
