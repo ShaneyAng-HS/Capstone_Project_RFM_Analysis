@@ -330,3 +330,17 @@ if st.sidebar.button("📈 Generate Insights"):
         1: "These customers may be slipping away. Consider re-engagement campaigns.",
         2: "These are promising leads. Focused promotion may convert them to loyal buyers.",
         3: "Top-tier loyal customers. Prioritize retention"
+    }
+    st.success(f"🧩 **Customer Segment:** {segment_map.get(cluster)}")
+    st.info(descriptions.get(cluster))
+
+    st.metric("💰 Predicted Lifetime Value (CLV)", f"${predicted_monetary:,.2f}")
+
+# ---------------- Footer -----------------
+st.markdown("---")
+st.markdown(
+    "<div style='text-align: center; color: grey;'>"
+    "Developed by <b>Shaney Ang Tech</b> | Powered by Streamlit | © 2025"
+    "</div>",
+    unsafe_allow_html=True
+)
