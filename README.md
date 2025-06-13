@@ -4,7 +4,8 @@ Segment, Predict & Grow.
 ---
 
 ## Problem Statement
-
+How can we segment customers based on their purchasing behaviour to tailor marketing strategies, and
+predict customer lifetime value (CLV) to focus efforts on high-value customers?
 
 
 ## Methodology
