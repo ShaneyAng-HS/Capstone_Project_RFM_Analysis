@@ -1,5 +1,6 @@
 # Capstone_Project_RFM_Analysis (May 2025)
-Segment, Predict & Grow.
+Segment, Predict & Grow:
+Unlocking Customer Value with RFM Analysis and Machine Learning
 
 ---
 
